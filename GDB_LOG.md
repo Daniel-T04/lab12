@@ -8,6 +8,8 @@ One dated section per week. Paste the commands you used and the output you saw, 
 
 Commands, in the order you typed them, with one line on what each did:
 
+
+
 Backtrace inside `Hangman::Hangman` (paste it):
 
 
