@@ -1,11 +1,25 @@
 #ifndef ARCADE_HANGMAN_H
 #define ARCADE_HANGMAN_H
+#include "game.h"
 
 #include <random>
 #include <string>
 
 /// @file hangman.h
 /// @brief Hangman, written with free functions only.
+
+class Hangman : public Game {
+public:
+  Hangman();
+
+  void play();
+  int times_played() const;
+
+private:
+  int m_times_played;
+};
+
+
 
 /// The number of wrong guesses that lose the game.
 inline constexpr int max_misses = 6;
@@ -52,7 +66,6 @@ void print_status(const std::string &masked, const std::string &guessed,
 /// The score for a finished game.
 /// @param misses_left wrong guesses the player still had
 /// @param word_length number of letters in the word
-/// @return misses_left * 10 + word_length * 5
 int hangman_score(int misses_left, int word_length);
 
 /// Play one game of Hangman.

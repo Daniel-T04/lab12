@@ -1,10 +1,22 @@
-#include "hangman.h"
-
 #include <iomanip>
 #include <iostream>
-
 #include "input.h"
 #include "words.h"
+#include "hangman.h"
+
+
+Hangman::Hangman() : Game("Hangman"), m_times_played(0) {}
+
+void Hangman::play() {
+    int score = play_hangman();
+    set_score(score);
+    m_times_played++;
+}
+
+int Hangman::times_played() const {
+    return m_times_played;
+}
+
 
 std::string pick_word(const std::string words[], int count, std::mt19937 &gen) {
   std::uniform_int_distribution<int> pick{0, count - 1};
