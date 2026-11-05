@@ -15,7 +15,11 @@ void Game::play() {
  std::cout << "Game::play called";
 }
 
-void Game::ask_play_again() const {
+void Game::set_score(int score){
+ m_last_score = score;
+}
+
+bool Game::ask_play_again() const {
     char choice = 'n';
     std::cout << "Want to play again? (y/n): ";
     std::cin >> choice;

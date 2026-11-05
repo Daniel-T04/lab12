@@ -9,11 +9,11 @@ explicit Game(std::string title);
 
 
     const std::string& title() const;
-    int last_score const;
+    int last_score() const;
     void play();
 
 protected: 
-    void set_store(int score);
+    void set_score(int score);
     bool ask_play_again() const;
 
 private: 
