@@ -83,10 +83,50 @@ The backtrace reads it as. When my destructor breakpoint hits, Game::~Game at #0
 
 `print hangman` (paste it):
 
+$1 = {
+  <Game> = {
+    m_title = "Hangman",
+    m_last_score = 0
+  },
+  members of Hangman:
+  m_times_played = 0
+}
+
 `print *g` (paste it):
+
+$2 = {
+  m_title = "",
+  m_last_score = -7728
+}
 
 What is different, and why:
 
-`ptype Hangman` and `ptype g` (paste them):
+`ptype Hangman` and `ptype g` (paste them): 
+
+(gdb) ptype Hangman
+type = class Hangman : public Game {
+    int m_times_played;
+
+public:
+    Hangman(void);
+    void play(void);
+    int times_played(void) const;
+}
+(gdb) ptype g
+type = class Game {
+    std::string m_title;
+    int m_last_score;
+
+public:
+    Game(std::string);
+    const std::string & title(void) const;
+    int last_score(void) const;
+    void play(void);
+protected:
+    void set_score(int);
+    bool ask_play_again(void) const;
+} *
 
 One sentence on what `ptype Hangman` revealed about inheritance:
+
+ptype Hangman revealed that public inheritance causes a derived class to fully incorpate all member  variables and public interfaces of its basic class directly into its own type definition.
