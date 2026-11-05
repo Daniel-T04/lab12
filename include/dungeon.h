@@ -3,6 +3,18 @@
 
 #include "direction.h"
 #include "room.h"
+#include "game.h"
+
+class Dungeon : public Game {
+public: 
+   Dungeon();
+   void play();
+   int time_played() const;
+
+ private:
+   int m_times_played;
+};
+
 
 /// @file dungeon.h
 /// @brief The Dungeon game: six rooms, items, a trap, and text commands.

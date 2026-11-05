@@ -1,11 +1,23 @@
 #include "dungeon.h"
-
 #include <iostream>
 #include <string>
-
 #include "input.h"
 #include "item.h"
 #include "player.h"
+
+Dungeon::Dungeon() : Game("Dungeon"), m_times_played(0) {}
+
+void Dungeon::play() {
+    int score = play_dungeon();
+    set_score(score);
+    m_times_played++;
+}
+
+int Dungeon::time_played() const {
+    return m_times_played;
+
+}
+
 
 void connect_rooms(Room &a, Direction d, Room &b) {
   a.connect(d, &b);
