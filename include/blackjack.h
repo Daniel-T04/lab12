@@ -3,6 +3,19 @@
 
 #include "deck.h"
 #include "hand.h"
+#include "game.h"
+
+
+class Blackjack : public Game {
+public:
+    Blackjack();
+    void play();
+    int times_played() const;
+
+private:
+    int m_times_played;
+};
+
 
 /// @file blackjack.h
 /// @brief Blackjack for one player against the dealer.
