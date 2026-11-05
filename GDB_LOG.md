@@ -127,6 +127,9 @@ protected:
     bool ask_play_again(void) const;
 } *
 
+(gdb) whatis g
+type = Game *
+
 One sentence on what `ptype Hangman` revealed about inheritance:
 
 ptype Hangman revealed that public inheritance causes a derived class to fully incorpate all member  variables and public interfaces of its basic class directly into its own type definition.
