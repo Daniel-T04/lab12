@@ -46,6 +46,11 @@ Choice parse_choice(const std::string &text) {
 } // namespace
 
 int main() {
+  Hangman hangman;
+  Dungeon dungeon;
+  Blackjack blackjack;
+  Minesweeper minesweeper;
+
   std::string line;
   while (true) {
     print_menu();
@@ -58,16 +63,20 @@ int main() {
     }
     switch (choice) {
     case Choice::hangman:
-      report_score(play_hangman());
+      hangman.play();
+      report_score(hangman.last_score());
       break;
     case Choice::dungeon:
-      report_score(play_dungeon());
+      dungeon.play();
+      report_score(dungeon.last_score());
       break;
     case Choice::blackjack:
-      report_score(play_blackjack());
+      blackjack.play();
+      report_score(blackjack.last_score());
       break;
     case Choice::minesweeper:
-      report_score(play_minesweeper());
+      minesweeper.play();
+      report_score(minesweeper.last_score());
       break;
     case Choice::quit:
       break;
