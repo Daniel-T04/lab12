@@ -5,7 +5,6 @@
 class Minesweeper : public Game {
 public:
     Minesweeper();
-
     void play();
     int times_played() const;
 
